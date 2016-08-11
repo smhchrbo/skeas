@@ -9,10 +9,10 @@ dbcon <- read.csv("db.csv",header = T,stringsAsFactors = F)
 setwd("~/R/rwd/skeas")
 if(require(RMySQL)&require(reshape)){
   con <- dbConnect(RMySQL::MySQL(), 
-                   host = dbcon$host,
-                   user = dbcon$user, 
-                   password = dbcon$password,
-                   db=dbcon$db)
+                   host = dbcon[1,]$host,
+                   user = dbcon[1,]$user, 
+                   password = dbcon[1,]$password,
+                   db=dbcon[1,]$db)
   
 stmt1<-"SELECT * FROM eas_v01_ry" 
 stmt2<-"SELECT * FROM eas_v02_yh"
